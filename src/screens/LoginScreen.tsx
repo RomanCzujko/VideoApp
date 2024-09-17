@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
  View,
- TextInput,
- Button,
  Text,
  StyleSheet,
  TouchableOpacity,
+ Animated,
 } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackParamList } from '../navigation/types';
 import Logo from 'assets/svg/logo';
+import PlayIcon from 'assets/svg/play-icon';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<
  StackParamList,
@@ -19,22 +19,67 @@ type LoginScreenNavigationProp = NativeStackNavigationProp<
 interface Props {
  navigation: LoginScreenNavigationProp;
 }
+
 const LoginScreen: React.FC<Props> = ({ navigation }) => {
+ const bounceValue = useRef(new Animated.Value(1)).current;
+ const rotateValue = useRef(new Animated.Value(0)).current;
+
+ useEffect(() => {
+  const animation = Animated.sequence([
+   Animated.parallel([
+    Animated.timing(bounceValue, {
+     toValue: 1.8,
+     duration: 300,
+     useNativeDriver: true,
+    }),
+    Animated.timing(rotateValue, {
+     toValue: 1,
+     duration: 300,
+     useNativeDriver: true,
+    }),
+   ]),
+   Animated.parallel([
+    Animated.timing(bounceValue, {
+     toValue: 1,
+     duration: 300,
+     useNativeDriver: true,
+    }),
+    Animated.timing(rotateValue, {
+     toValue: 0,
+     duration: 300,
+     useNativeDriver: true,
+    }),
+   ]),
+  ]);
+
+  animation.start();
+ }, [bounceValue, rotateValue]);
+
+ const rotateInterpolate = rotateValue.interpolate({
+  inputRange: [0, 1],
+  outputRange: ['0deg', '15deg'],
+ });
+
  const handleLoginAsGuest = () => {
-  // Navigate to your MainTabs or whatever is appropriate
   navigation.replace('MainTabs');
  };
 
  return (
   <View style={styles.container}>
-   {/* Header */}
-   <Text style={styles.headerText}>
-    YouTube<Text style={styles.headerBold}> LEARN</Text>
-   </Text>
+   {/* Animated Logo */}
+
+   <Logo />
 
    {/* Icon */}
    <View style={styles.iconContainer}>
-    <Logo />
+    <Animated.View
+     style={[
+      styles.logoContainer,
+      { transform: [{ scale: bounceValue }, { rotate: rotateInterpolate }] },
+     ]}
+    >
+     <PlayIcon />
+    </Animated.View>
    </View>
 
    {/* Welcome Text */}
@@ -48,11 +93,13 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
    </TouchableOpacity>
 
    {/* Footer */}
-   <Text style={styles.footerText}>
-    By continuing you agree with{' '}
-    <Text style={styles.footerLink}>Terms and Conditions</Text> and{' '}
-    <Text style={styles.footerLink}>Privacy Policy</Text>
-   </Text>
+   <View style={styles.footerContainer}>
+    <Text style={styles.footerText}>
+     By continuing you agree with{'\n'}
+     <Text style={styles.footerLink}>Terms and Conditions</Text> and{' '}
+     <Text style={styles.footerLink}>Privacy Policy</Text>
+    </Text>
+   </View>
   </View>
  );
 };
@@ -62,45 +109,47 @@ const styles = StyleSheet.create({
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '#8693a5', // Light blue/gray background
+  backgroundColor: '#8D99AE',
+  paddingHorizontal: 30,
+  paddingTop: 100,
+  paddingBottom: 80,
  },
- headerText: {
-  fontSize: 32, // Larger font size for "YouTube"
-  fontWeight: 'normal',
-  color: '#fff',
- },
- headerBold: {
-  fontWeight: 'bold', // Bolder text for "LEARN"
+ logoContainer: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom: 30,
  },
  iconContainer: {
-  marginTop: 30,
-  marginBottom: 30,
+  flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
  },
- icon: {
-  width: 120, // Icon width
-  height: 120, // Icon height
- },
  welcomeText: {
-  fontSize: 16,
+  fontSize: 22,
   fontWeight: '600',
   color: '#fff',
-  textAlign: 'center',
+  textAlign: 'left',
   marginBottom: 20,
-  paddingHorizontal: 20,
+  width: '100%',
  },
  loginButton: {
-  backgroundColor: '#353535', // Dark gray button
-  paddingVertical: 15,
-  paddingHorizontal: 80,
-  borderRadius: 25,
-  marginBottom: 20,
+  backgroundColor: '#2B2D42',
+  paddingVertical: 12,
+  width: '100%',
+  borderRadius: 12,
  },
  loginButtonText: {
   color: '#fff',
   fontSize: 16,
   fontWeight: '600',
+  textAlign: 'center',
+ },
+ footerContainer: {
+  position: 'absolute',
+  bottom: 20,
+  left: 30,
+  right: 30,
+  alignItems: 'center',
  },
  footerText: {
   fontSize: 12,
@@ -109,7 +158,8 @@ const styles = StyleSheet.create({
   marginTop: 20,
  },
  footerLink: {
-  textDecorationLine: 'underline', // Underline for "Terms and Conditions" and "Privacy Policy"
+  textDecorationLine: 'underline',
+  color: '#2B2D42',
  },
 });
 
