@@ -1,0 +1,43 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build output
+ios/build/
+android/app/build/
+android/.gradle/
+android/.idea/
+android/local.properties
+android/.gradle/
+android/app/build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# React Native files
+.expo
+.expo-shared
+web-build/
+*.log
+
+# IDE-specific files
+.vscode/
+.idea/
+*.iml
+
+# Metro and bundler cache
+.expo/
+dist/
+**/build/
+.cache/
+.babelrc
+
+# Debug files
+*.swp
+*.swo
+*.lock
+
+# Misc
+.env

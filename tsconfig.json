@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["nativewind"],  // Ensure nativewind types are included
+    "baseUrl": "./",
+    "paths": {
+      "*": ["src/*"]
+    }
+  },
+  "extends": "expo/tsconfig.base",
+  "include": ["src/**/*", "App.tsx"]
+}
