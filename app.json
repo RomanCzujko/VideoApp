@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "VideoApp",
+    "slug": "VideoApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/app-icon.png",
+    "splash": {
+      "image": "./src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#8D99AE"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.romanczujko.videoApp"
+    },
+    "android": {
+      "package": "com.romanczujko.videoApp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9e53aa29-03ad-451b-98ad-ca3195e362b2"
+      }
+    },
+    "sec_data": {
+        "YOUTUBE_API_KEY":"AIzaSyAt3TGkNQihuyYftnWpALyRm3icRT0YZZw"
+      } 
+  }
+}

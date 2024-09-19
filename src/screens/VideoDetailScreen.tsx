@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Video from 'react-native-video';
+import Video from 'react-native-video-controls';
 import { RouteProp } from '@react-navigation/native';
 import { StackParamList } from '../navigation/types'; 
 
@@ -17,7 +17,7 @@ const VideoDetailScreen: React.FC<Props>  = ({ route }) => {
     <View>
       <Video
         source={{ uri: `https://www.youtube.com/watch?v=${videoId}` }}
-        style={{ height: 300, width: '100%' }}
+        style={{ height: 130, width: '100%' }}
         controls={true}
       />
       <Text style={styles.subtitle}>Title: {title}</Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    color: '#666',
+    color: '#777',
   },
 });
 

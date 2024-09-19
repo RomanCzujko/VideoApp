@@ -17,39 +17,36 @@ const MainTabNavigator = () => {
           // Determine which icon to show based on the route name
           if (route.name === 'Home') {
             iconName = 'home-outline';
-          } else if (route.name === 'Search') {
+          } else if (route.name === 'SearchScreen') {
             iconName = 'search-outline';
           } else if (route.name === 'Settings') {
             iconName = 'settings-outline';
           }
 
           
-          return <Ionicons name={iconName} size={20} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#007BFF', 
         tabBarInactiveTintColor: 'gray', 
         tabBarLabelStyle: {
-            fontSize: 10, 
+            fontSize: 12, 
           },
           tabBarIconStyle: {
-            marginBottom: -10, // Adjust the margin between icon and label (optional)
+            marginBottom: -5,
+            paddingTop: 5 
           }, 
       })}
     >
       <Tab.Screen
         name="Home"
         component={MainScreen}
-        options={{ tabBarLabel: 'Home' }} 
+        options={{ tabBarLabel: 'Home', headerShown: false }} 
       />
       <Tab.Screen
-        name="Search"
+        name="SearchScreen"
         component={SearchScreen}
-        options={{ tabBarLabel: 'Search' }}  
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ tabBarLabel: 'Settings' }}  // Optional: customize the label
+        options={{ tabBarLabel: 'Search', headerShown: false  }}
+        initialParams={{ title: '' }}
       />
     </Tab.Navigator>
   );
