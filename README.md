@@ -11,4 +11,5 @@ To install VideoApp, follow these steps:
 git clone https://github.com/romanczujko/videoapp.git
 cd videoapp
 npm install
-npx expo start
+npx expo start (use 's' key to switch to ExpoGo)
+to install on connected device use command: npx expo run:android
