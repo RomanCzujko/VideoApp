@@ -19,7 +19,7 @@ export const searchVideos = async (searchTerm: string): Promise<Video[]> => {
     params: {
       q: searchTerm,
       part: 'snippet',
-      maxResults: 1,
+      maxResults: 2,
       key: YOUTUBE_API_KEY,
     },
   });
@@ -31,7 +31,7 @@ export const getVideosByCategory = async (category: string): Promise<Video[]> =>
     params: {
       q: category,
       part: 'snippet',
-      maxResults: 1,
+      maxResults: 2,
       key: YOUTUBE_API_KEY,
     },
   });

@@ -5,5 +5,5 @@ export type StackParamList = {
     VideoDetail: { videoId: string; title: string; description: string };
     SearchScreen: { title: string; videos: Video[] }; 
     SettingsScreen: undefined;
-    
+    MainScreen: undefined
   };

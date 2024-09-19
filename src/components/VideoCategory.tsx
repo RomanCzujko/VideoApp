@@ -33,6 +33,7 @@ const VideoCategory: React.FC<VideoCategoryProps> = ({ title, videos, onShowMore
       
       <FlatList
         horizontal
+        showsHorizontalScrollIndicator={false}
         data={videos}
         keyExtractor={(item) => item.id.videoId}
         renderItem={({ item }) => (

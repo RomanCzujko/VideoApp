@@ -17,7 +17,7 @@ import { StackParamList } from '../navigation/types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 interface MainScreenProps {
- navigation: NativeStackNavigationProp<StackParamList, 'MainScreen'>;
+ navigation: NativeStackNavigationProp<StackParamList, 'MainTabs'>;
 }
 
 // Collecting all categories to avoid duplication

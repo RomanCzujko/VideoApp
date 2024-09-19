@@ -23,7 +23,7 @@ const AppNavigator: React.FC = () => {
         <>
           <Stack.Screen name="MainTabs" component={MainTabNavigator} />
           <Stack.Screen name="SearchScreen" component={SearchScreen} />
-          <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{headerShown: true, headerTitle:''}} />
+          <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{headerShown: true}} />
           <Stack.Screen name="VideoDetail" component={VideoDetailScreen} initialParams={{ videoId: 'default' }} />
         </>
       )}
