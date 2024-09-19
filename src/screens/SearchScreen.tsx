@@ -24,6 +24,7 @@ const SearchScreen: React.FC<SearchScreenProps> = ({ route, navigation }) => {
       <FlatList
         data={videos}
         keyExtractor={(item) => item.id.videoId}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => navigation.navigate('VideoDetail', {
             videoId: item.id.videoId,
