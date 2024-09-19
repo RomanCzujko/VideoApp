@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { expo } from '../../app.json'; 
 
-const {YOUTUBE_API_KEY} = expo.sec_data
+const {YOUTUBE_API_KEY} = expo.customConfig.sec_data
 
 // Define the Video type based on the YouTube API response
 export interface Video {

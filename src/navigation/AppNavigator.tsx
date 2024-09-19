@@ -10,7 +10,7 @@ import VideoDetailScreen from '../screens/VideoDetailScreen';
 const Stack = createStackNavigator<StackParamList>();  // Use StackParamList for typing
 
 const AppNavigator: React.FC = () => {
-  const isLoggedIn = true;  // Replace this with your actual authentication logic
+  const isLoggedIn = false;  // Replace this with your actual authentication logic
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>

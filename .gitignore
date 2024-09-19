@@ -41,3 +41,7 @@ dist/
 
 # Misc
 .env
+
+#Platforms builds
+/android
+/ios

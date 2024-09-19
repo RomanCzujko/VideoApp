@@ -10,6 +10,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#8D99AE"
     },
+    
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -25,10 +26,17 @@
     "extra": {
       "eas": {
         "projectId": "9e53aa29-03ad-451b-98ad-ca3195e362b2"
+      },
+      "adaptiveIcon": {
+        "foregroundImage": "./path/to/foreground.png",
+        "backgroundColor": "#FFFFFF"
       }
     },
-    "sec_data": {
-        "YOUTUBE_API_KEY":"AIzaSyAt3TGkNQihuyYftnWpALyRm3icRT0YZZw"
-      } 
+    "customConfig": {
+        "sec_data": {
+            "YOUTUBE_API_KEY":"AIzaSyAt3TGkNQihuyYftnWpALyRm3icRT0YZZw" 
+        }
+      },
+      "platforms": ["ios", "android", "web"] 
   }
 }
